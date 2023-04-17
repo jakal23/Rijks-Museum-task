@@ -1,0 +1,29 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Museum" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<!--        <item name="android:windowBackground">#f9f9f9</item>-->
+    </style>
+
+    <style name="Theme.Museum" parent="Base.Theme.Museum" />
+
+    <style name="LinkButton">
+        <item name="android:textColor">?attr/colorPrimaryVariant</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceListItem</item>
+        <item name="android:autoLink">web</item>
+        <item name="android:linksClickable">true</item>
+    </style>
+
+    <style name="Theme.Museum.ListItem">
+        <item name="android:paddingStart">?android:attr/listPreferredItemPaddingStart</item>
+        <item name="android:paddingEnd">?android:attr/listPreferredItemPaddingEnd</item>
+        <item name="android:baselineAligned">false</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:minHeight">?android:attr/listPreferredItemHeightSmall</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+    </style>
+
+</resources>

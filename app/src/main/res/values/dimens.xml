@@ -1,0 +1,10 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="text_padding">@dimen/middle_padding</dimen>
+    <dimen name="card_padding">@dimen/large_padding</dimen>
+
+    <dimen name="large_padding">16dp</dimen>
+    <dimen name="middle_padding">8dp</dimen>
+    <dimen name="small_padding">4dp</dimen>
+</resources>
