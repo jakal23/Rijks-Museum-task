@@ -5,7 +5,7 @@ import com.rijksmuseum.task.util.network.AppLanguage
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class CollectionSearchParams(
+data class CollectionSearchParamsModel(
     /*
     * The language to search in (and of the results).
     */

@@ -11,16 +11,16 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.rijksmuseum.task.R
-import com.rijksmuseum.task.collection.presentation.collection.model.CollectionAdapterItem
+import com.rijksmuseum.task.collection.presentation.collection.model.CollectionItem
 import com.rijksmuseum.task.databinding.CollectionListItemBinding
 import com.rijksmuseum.task.databinding.ListItemHeaderBinding
 
 class CollectionAdapter(
-    onItemClick: (CollectionAdapterItem.Body) -> Unit
-) : PagingDataAdapter<CollectionAdapterItem, CollectionAdapter.BaseViewHolder>(COMPARATOR) {
+    onItemClick: (CollectionItem.CollectionDetail) -> Unit
+) : PagingDataAdapter<CollectionItem, CollectionAdapter.BaseViewHolder>(COMPARATOR) {
 
     private val onClickListener = View.OnClickListener {
-        onItemClick.invoke(it.tag as CollectionAdapterItem.Body)
+        onItemClick.invoke(it.tag as CollectionItem.CollectionDetail)
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -68,8 +68,8 @@ class CollectionAdapter(
         private val clickListener: View.OnClickListener
     ) : BaseViewHolder(binding.root) {
 
-        override fun bind(collectionAdapterItem: CollectionAdapterItem) {
-            val body = collectionAdapterItem.asBody()
+        override fun bind(collectionItem: CollectionItem) {
+            val body = collectionItem.asCollectionDetail()
 
             binding.title.text = body.title
             binding.description.text = body.description
@@ -109,8 +109,8 @@ class CollectionAdapter(
         private val binding: ListItemHeaderBinding
     ) : BaseViewHolder(binding.root) {
 
-        override fun bind(collectionAdapterItem: CollectionAdapterItem) {
-            val header = collectionAdapterItem.asHeader()
+        override fun bind(collectionItem: CollectionItem) {
+            val header = collectionItem.asMaker()
             binding.title.text = header.title
         }
     }
@@ -119,7 +119,7 @@ class CollectionAdapter(
         private val binding: ListItemHeaderBinding
     ) : BaseViewHolder(binding.root) {
 
-        override fun bind(collectionAdapterItem: CollectionAdapterItem) {
+        override fun bind(collectionItem: CollectionItem) {
             binding.title.text = itemView.context.getString(R.string.loading)
         }
     }
@@ -129,7 +129,7 @@ class CollectionAdapter(
             // override this method for clean up resources
         }
 
-        abstract fun bind(collectionAdapterItem: CollectionAdapterItem)
+        abstract fun bind(collectionItem: CollectionItem)
     }
 
     companion object {
@@ -138,26 +138,26 @@ class CollectionAdapter(
         private const val BODY = 1 shl 1
         private const val INVALID = 1 shl 2
 
-        private fun itemToViewType(adapterModel: CollectionAdapterItem): Int {
+        private fun itemToViewType(adapterModel: CollectionItem): Int {
             return when (adapterModel) {
-                is CollectionAdapterItem.Body -> BODY
-                is CollectionAdapterItem.Header -> HEADER
+                is CollectionItem.CollectionDetail -> BODY
+                is CollectionItem.Maker -> HEADER
             }
         }
 
-        val COMPARATOR = object : DiffUtil.ItemCallback<CollectionAdapterItem>() {
+        val COMPARATOR = object : DiffUtil.ItemCallback<CollectionItem>() {
             override fun areContentsTheSame(
-                oldItem: CollectionAdapterItem,
-                newItem: CollectionAdapterItem
+                oldItem: CollectionItem,
+                newItem: CollectionItem
             ): Boolean =
                 oldItem == newItem
 
             override fun areItemsTheSame(
-                oldItem: CollectionAdapterItem,
-                newItem: CollectionAdapterItem
+                oldItem: CollectionItem,
+                newItem: CollectionItem
             ): Boolean =
-                (oldItem.isBody() && newItem.isBody() && oldItem.asBody().id == newItem.asBody().id)
-                        || (oldItem.isHeader() && newItem.isHeader() && oldItem.asHeader() == newItem.asHeader())
+                (oldItem.isCollectionDetail() && newItem.isCollectionDetail() && oldItem.asCollectionDetail().id == newItem.asCollectionDetail().id)
+                        || (oldItem.isMaker() && newItem.isMaker() && oldItem.asMaker() == newItem.asMaker())
         }
     }
 }

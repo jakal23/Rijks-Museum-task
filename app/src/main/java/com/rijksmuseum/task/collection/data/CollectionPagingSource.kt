@@ -4,13 +4,13 @@ import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.PagingState
 import com.rijksmuseum.task.collection.domain.model.list.ArtObject
-import com.rijksmuseum.task.collection.domain.model.list.CollectionSearchParams
+import com.rijksmuseum.task.collection.domain.model.list.CollectionSearchParamsModel
 import com.rijksmuseum.task.util.BasePagingSource
 
 @OptIn(ExperimentalPagingApi::class)
 class CollectionPagingSource(
     private val service: CollectionService,
-    private val request: CollectionSearchParams
+    private val request: CollectionSearchParamsModel
 ) : BasePagingSource<ArtObject>() {
 
     override fun getRefreshKey(state: PagingState<Int, ArtObject>): Int? {

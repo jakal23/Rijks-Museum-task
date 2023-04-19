@@ -13,8 +13,8 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.rijksmuseum.task.R
-import com.rijksmuseum.task.collection.domain.model.detail.CollectionDetailParams
-import com.rijksmuseum.task.collection.presentation.detail.model.CollectionDetail
+import com.rijksmuseum.task.collection.domain.model.detail.CollectionDetailParamsModel
+import com.rijksmuseum.task.collection.presentation.detail.model.CollectionDetailViewData
 import com.rijksmuseum.task.collection.presentation.util.circularProgressDrawable
 import com.rijksmuseum.task.databinding.FragmentCollectionDetailBinding
 import com.rijksmuseum.task.util.presentation.ViewBindingFragment
@@ -59,13 +59,13 @@ class CollectionDetailFragment : ViewBindingFragment<FragmentCollectionDetailBin
         }
 
         viewModel.loadDetail(
-            CollectionDetailParams(
+            CollectionDetailParamsModel(
                 args.culture, args.number
             )
         )
     }
 
-    private fun handleResult(response: CollectionDetail) {
+    private fun handleResult(response: CollectionDetailViewData) {
         binding.description.text = response.description
         binding.title.text = response.title
         binding.author.text = getString(R.string.author_param, response.author)

@@ -1,6 +1,6 @@
 package com.rijksmuseum.task.collection.presentation.detail.model
 
-data class CollectionDetail(
+data class CollectionDetailViewData(
     val id: String,
     val description: String,
     val title: String,

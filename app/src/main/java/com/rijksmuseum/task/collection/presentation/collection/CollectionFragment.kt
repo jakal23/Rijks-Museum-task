@@ -14,7 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.rijksmuseum.task.collection.domain.model.list.CollectionSearchParams
+import com.rijksmuseum.task.collection.domain.model.list.CollectionSearchParamsModel
 import com.rijksmuseum.task.databinding.FragmentCollectionBinding
 import com.rijksmuseum.task.util.network.AppLanguage
 import com.rijksmuseum.task.util.presentation.SearchMenuProvider
@@ -122,10 +122,10 @@ class CollectionFragment : ViewBindingFragment<FragmentCollectionBinding>() {
     private fun initSortSpinner() {
         with(binding.sortSpinner) {
             bindData(
-                CollectionSearchParams.Sort.values().map { it.value }
+                CollectionSearchParamsModel.Sort.values().map { it.value }
             )
             setOnItemSelectedListener {
-                CollectionSearchParams.Sort.findByOrdinal(it)?.let { sort ->
+                CollectionSearchParamsModel.Sort.findByOrdinal(it)?.let { sort ->
                     Log.d(TAG, "On sort changed. Sort by: $sort")
                     viewModel.sort(sort)
                 }

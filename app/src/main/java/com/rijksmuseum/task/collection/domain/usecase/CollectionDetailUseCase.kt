@@ -1,7 +1,7 @@
 package com.rijksmuseum.task.collection.domain.usecase
 
 import com.rijksmuseum.task.collection.domain.CollectionRepository
-import com.rijksmuseum.task.collection.domain.model.detail.CollectionDetailParams
+import com.rijksmuseum.task.collection.domain.model.detail.CollectionDetailParamsModel
 import com.rijksmuseum.task.collection.domain.model.detail.CollectionDetailResponse
 import com.rijksmuseum.task.collection.domain.util.DetailValidator
 import com.rijksmuseum.task.util.network.Result
@@ -14,7 +14,7 @@ class CollectionDetailUseCase(
 ) {
     private val validator = DetailValidator()
 
-    operator fun invoke(request: CollectionDetailParams): Flow<Result<CollectionDetailResponse>> {
+    operator fun invoke(request: CollectionDetailParamsModel): Flow<Result<CollectionDetailResponse>> {
         val errors = validator.validate(request)
 
         return if (errors.hasError()) {
