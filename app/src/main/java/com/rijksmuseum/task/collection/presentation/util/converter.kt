@@ -1,11 +1,11 @@
-package com.rijksmuseum.task.collection.ui.util
+package com.rijksmuseum.task.collection.presentation.util
 
 import android.net.Uri
 import android.util.Log
 import com.rijksmuseum.task.collection.domain.model.detail.ArtObjectDetail
 import com.rijksmuseum.task.collection.domain.model.list.ArtObject
-import com.rijksmuseum.task.collection.ui.collection.model.CollectionAdapterItem
-import com.rijksmuseum.task.collection.ui.detail.model.CollectionDetail
+import com.rijksmuseum.task.collection.presentation.collection.model.CollectionAdapterItem
+import com.rijksmuseum.task.collection.presentation.detail.model.CollectionDetail
 
 fun ArtObject.toAdapterItem(): CollectionAdapterItem.Body {
     return CollectionAdapterItem.Body(

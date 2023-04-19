@@ -1,4 +1,4 @@
-package com.rijksmuseum.task.collection.ui.collection
+package com.rijksmuseum.task.collection.presentation.collection
 
 import android.text.Html
 import android.text.Html.FROM_HTML_MODE_LEGACY
@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.rijksmuseum.task.R
-import com.rijksmuseum.task.collection.ui.collection.model.CollectionAdapterItem
+import com.rijksmuseum.task.collection.presentation.collection.model.CollectionAdapterItem
 import com.rijksmuseum.task.databinding.CollectionListItemBinding
 import com.rijksmuseum.task.databinding.ListItemHeaderBinding
 

@@ -1,4 +1,4 @@
-package com.rijksmuseum.task.collection.ui.collection
+package com.rijksmuseum.task.collection.presentation.collection
 
 import android.os.Bundle
 import android.util.Log
@@ -17,11 +17,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.rijksmuseum.task.collection.domain.model.list.CollectionSearchParams
 import com.rijksmuseum.task.databinding.FragmentCollectionBinding
 import com.rijksmuseum.task.util.network.AppLanguage
-import com.rijksmuseum.task.util.ui.SearchMenuProvider
-import com.rijksmuseum.task.util.ui.SpinnerUtil.bindData
-import com.rijksmuseum.task.util.ui.SpinnerUtil.setOnItemSelectedListener
-import com.rijksmuseum.task.util.ui.ViewBindingFragment
-import com.rijksmuseum.task.util.ui.handleError
+import com.rijksmuseum.task.util.presentation.SearchMenuProvider
+import com.rijksmuseum.task.util.presentation.SpinnerUtil.bindData
+import com.rijksmuseum.task.util.presentation.SpinnerUtil.setOnItemSelectedListener
+import com.rijksmuseum.task.util.presentation.ViewBindingFragment
+import com.rijksmuseum.task.util.presentation.handleError
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

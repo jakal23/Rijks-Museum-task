@@ -1,4 +1,4 @@
-package com.rijksmuseum.task.collection.ui.collection
+package com.rijksmuseum.task.collection.presentation.collection
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
@@ -10,8 +10,8 @@ import androidx.paging.map
 import com.rijksmuseum.task.collection.domain.CollectionRepository
 import com.rijksmuseum.task.collection.domain.model.list.ArtObject
 import com.rijksmuseum.task.collection.domain.model.list.CollectionSearchParams
-import com.rijksmuseum.task.collection.ui.collection.model.CollectionAdapterItem
-import com.rijksmuseum.task.collection.ui.util.toAdapterItem
+import com.rijksmuseum.task.collection.presentation.collection.model.CollectionAdapterItem
+import com.rijksmuseum.task.collection.presentation.util.toAdapterItem
 import com.rijksmuseum.task.util.network.AppLanguage
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel

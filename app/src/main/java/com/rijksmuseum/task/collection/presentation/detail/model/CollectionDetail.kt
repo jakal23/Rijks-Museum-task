@@ -1,4 +1,4 @@
-package com.rijksmuseum.task.collection.ui.detail.model
+package com.rijksmuseum.task.collection.presentation.detail.model
 
 data class CollectionDetail(
     val id: String,

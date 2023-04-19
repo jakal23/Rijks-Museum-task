@@ -1,4 +1,4 @@
-package com.rijksmuseum.task.util.ui
+package com.rijksmuseum.task.util.presentation
 
 import android.view.View
 import androidx.annotation.StringRes

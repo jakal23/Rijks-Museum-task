@@ -1,4 +1,4 @@
-package com.rijksmuseum.task.collection.ui.detail
+package com.rijksmuseum.task.collection.presentation.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,11 +14,11 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.rijksmuseum.task.R
 import com.rijksmuseum.task.collection.domain.model.detail.CollectionDetailParams
-import com.rijksmuseum.task.collection.ui.detail.model.CollectionDetail
-import com.rijksmuseum.task.collection.ui.util.circularProgressDrawable
+import com.rijksmuseum.task.collection.presentation.detail.model.CollectionDetail
+import com.rijksmuseum.task.collection.presentation.util.circularProgressDrawable
 import com.rijksmuseum.task.databinding.FragmentCollectionDetailBinding
-import com.rijksmuseum.task.util.ui.ViewBindingFragment
-import com.rijksmuseum.task.util.ui.handleError
+import com.rijksmuseum.task.util.presentation.ViewBindingFragment
+import com.rijksmuseum.task.util.presentation.handleError
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

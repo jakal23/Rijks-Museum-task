@@ -1,4 +1,4 @@
-package com.rijksmuseum.task.collection.ui.detail
+package com.rijksmuseum.task.collection.presentation.detail
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
@@ -6,8 +6,8 @@ import androidx.lifecycle.asFlow
 import com.rijksmuseum.task.collection.domain.model.detail.CollectionDetailParams
 import com.rijksmuseum.task.collection.domain.model.detail.CollectionDetailResponse
 import com.rijksmuseum.task.collection.domain.usecase.CollectionDetailUseCase
-import com.rijksmuseum.task.collection.ui.detail.model.CollectionDetail
-import com.rijksmuseum.task.collection.ui.util.toCollectionDetail
+import com.rijksmuseum.task.collection.presentation.detail.model.CollectionDetail
+import com.rijksmuseum.task.collection.presentation.util.toCollectionDetail
 import com.rijksmuseum.task.util.network.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
