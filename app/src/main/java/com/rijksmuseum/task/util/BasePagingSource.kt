@@ -6,7 +6,6 @@ import androidx.paging.PagingSource
 import retrofit2.HttpException
 import java.io.IOException
 
-
 @ExperimentalPagingApi
 abstract class BasePagingSource<T : Any> : PagingSource<Int, T>() {
 
