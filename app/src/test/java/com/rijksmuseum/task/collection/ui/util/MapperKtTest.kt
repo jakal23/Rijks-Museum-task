@@ -8,7 +8,7 @@ import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito
 
-class ConverterKtTest {
+class MapperKtTest {
 
     private val artObject = Mockito.mock(ArtObjectDetail::class.java)
     private val webImage = Mockito.mock(WebImage::class.java)
