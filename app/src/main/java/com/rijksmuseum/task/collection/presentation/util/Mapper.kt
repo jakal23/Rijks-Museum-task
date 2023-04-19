@@ -23,7 +23,11 @@ fun ArtObjectDetail.toCollectionDetail(): CollectionDetailViewData {
     val image = if (hasImage && showImage) webImage.url else null
 
     return CollectionDetailViewData(
-        id, description, title, principalMaker, image
+        id = id,
+        description = description ?: longTitle,
+        title = title,
+        author = principalMaker,
+        image = image
     )
 }
 

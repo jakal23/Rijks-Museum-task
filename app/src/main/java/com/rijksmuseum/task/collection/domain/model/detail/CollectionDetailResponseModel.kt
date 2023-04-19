@@ -16,7 +16,7 @@ data class ArtObjectDetail(
     val catRefRPK: List<String>,
     val colors: List<Color>,
     val dating: Dating,
-    val description: String,
+    val description: String?,
     val dimensions: List<Dimension>,
     val documentation: List<String>,
     val hasImage: Boolean,
