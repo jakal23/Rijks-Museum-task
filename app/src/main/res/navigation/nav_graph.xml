@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/CollectionFragment"
-        android:name="com.rijksmuseum.task.collection.ui.collection.CollectionFragment"
+        android:name="com.rijksmuseum.task.collection.presentation.collection.CollectionFragment"
         android:label="@string/collection_fragment_label"
         tools:layout="@layout/fragment_collection">
 
@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/CollectionDetailFragment"
-        android:name="com.rijksmuseum.task.collection.ui.detail.CollectionDetailFragment"
+        android:name="com.rijksmuseum.task.collection.presentation.detail.CollectionDetailFragment"
         android:label="{title}"
         tools:layout="@layout/fragment_collection_detail">
 

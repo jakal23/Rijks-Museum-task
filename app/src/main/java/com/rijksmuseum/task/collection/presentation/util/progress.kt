@@ -1,4 +1,4 @@
-package com.rijksmuseum.task.collection.ui.util
+package com.rijksmuseum.task.collection.presentation.util
 
 import android.content.Context
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable

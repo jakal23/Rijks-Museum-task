@@ -1,4 +1,4 @@
-package com.rijksmuseum.task.collection.ui.collection.model
+package com.rijksmuseum.task.collection.presentation.collection.model
 
 import android.net.Uri
 
