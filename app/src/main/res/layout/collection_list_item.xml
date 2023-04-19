@@ -2,12 +2,12 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_view"
+    style="@style/Widget.Material3.CardView.Elevated"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/middle_padding"
     android:clickable="true"
     android:focusable="true"
-    style="@style/Widget.Material3.CardView.Elevated"
     android:foreground="?selectableItemBackground">
 
     <LinearLayout

@@ -5,15 +5,15 @@ import com.rijksmuseum.task.collection.domain.CollectionRepository
 import com.rijksmuseum.task.collection.domain.model.detail.CollectionDetailParams
 import com.rijksmuseum.task.collection.domain.model.detail.CollectionDetailResponse
 import com.rijksmuseum.task.util.network.AppLanguage
+import com.rijksmuseum.task.util.network.Result
 import com.rijksmuseum.task.util.validator.InvalidDataException
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito
-import com.rijksmuseum.task.util.network.Result
-import kotlinx.coroutines.flow.flowOf
 
 class CollectionDetailUseCaseTest {
 

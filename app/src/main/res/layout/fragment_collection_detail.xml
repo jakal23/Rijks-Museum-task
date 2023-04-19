@@ -36,7 +36,7 @@
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                tools:src="@drawable/ic_launcher_foreground"/>
+                tools:src="@drawable/ic_launcher_foreground" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/title"

@@ -1,6 +1,5 @@
 package com.rijksmuseum.task.hilt.collection
 
-
 import com.rijksmuseum.task.collection.data.CollectionRepositoryImpl
 import com.rijksmuseum.task.collection.data.CollectionService
 import com.rijksmuseum.task.collection.domain.CollectionRepository
@@ -15,8 +14,6 @@ import retrofit2.Retrofit
 @Module
 @InstallIn(ViewModelComponent::class)
 object CollectionModule {
-
-
     @Provides
     @ViewModelScoped
     fun repository(

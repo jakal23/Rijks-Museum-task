@@ -12,7 +12,6 @@ import kotlinx.coroutines.flow.flowOf
 class CollectionDetailUseCase(
     private val repository: CollectionRepository
 ) {
-
     private val validator = DetailValidator()
 
     operator fun invoke(request: CollectionDetailParams): Flow<Result<CollectionDetailResponse>> {
