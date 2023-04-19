@@ -4,24 +4,19 @@ import android.os.Parcelable
 import com.rijksmuseum.task.util.network.AppLanguage
 import kotlinx.parcelize.Parcelize
 
+/**
+ * class [CollectionSearchParamsModel] is search request data for retrieving collections
+ *
+ * @param[culture] The language to search in (and of the results).
+ * @param[query] The search terms that need to occur in one of the fields of the object data.
+ * @param[sort] Sort results
+ */
 @Parcelize
 data class CollectionSearchParamsModel(
-    /*
-    * The language to search in (and of the results).
-    */
     val culture: AppLanguage,
-
-    /*
-    * The search terms that need to occur in one of the fields of the object data.
-    */
     val query: String,
-
-    /*
-    * Sort results
-    */
-    val sort: Sort,
-
-    ) : Parcelable {
+    val sort: Sort
+) : Parcelable {
 
     enum class Sort(val value: String) {
         /* Sort results on relevance.") */
