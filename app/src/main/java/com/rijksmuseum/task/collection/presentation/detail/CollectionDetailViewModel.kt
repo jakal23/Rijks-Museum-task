@@ -3,10 +3,10 @@ package com.rijksmuseum.task.collection.presentation.detail
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asFlow
-import com.rijksmuseum.task.collection.domain.model.detail.CollectionDetailParams
+import com.rijksmuseum.task.collection.domain.model.detail.CollectionDetailParamsModel
 import com.rijksmuseum.task.collection.domain.model.detail.CollectionDetailResponse
 import com.rijksmuseum.task.collection.domain.usecase.CollectionDetailUseCase
-import com.rijksmuseum.task.collection.presentation.detail.model.CollectionDetail
+import com.rijksmuseum.task.collection.presentation.detail.model.CollectionDetailViewData
 import com.rijksmuseum.task.collection.presentation.util.toCollectionDetail
 import com.rijksmuseum.task.util.network.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,7 +23,7 @@ class CollectionDetailViewModel @Inject constructor(
     val loader = _loader.asStateFlow()
 
     private val stateFlow = savedStateHandle
-        .getLiveData<CollectionDetailParams>(KEY_STATE)
+        .getLiveData<CollectionDetailParamsModel>(KEY_STATE)
         .asFlow()
 
     val detail = stateFlow.flatMapMerge {
@@ -33,11 +33,11 @@ class CollectionDetailViewModel @Inject constructor(
             .onCompletion { _loader.emit(false) }
     }
 
-    fun loadDetail(request: CollectionDetailParams) {
+    fun loadDetail(request: CollectionDetailParamsModel) {
         savedStateHandle[KEY_STATE] = request
     }
 
-    private fun mapResponse(result: Result<CollectionDetailResponse>): Result<CollectionDetail> {
+    private fun mapResponse(result: Result<CollectionDetailResponse>): Result<CollectionDetailViewData> {
         return when {
             result.isSuccess() -> Result.Success(result.toData().artObject.toCollectionDetail())
             else -> Result.Error(result.toException())

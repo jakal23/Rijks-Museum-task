@@ -2,7 +2,7 @@ package com.rijksmuseum.task.collection.domain.usecase
 
 import com.google.common.truth.Truth
 import com.rijksmuseum.task.collection.domain.CollectionRepository
-import com.rijksmuseum.task.collection.domain.model.detail.CollectionDetailParams
+import com.rijksmuseum.task.collection.domain.model.detail.CollectionDetailParamsModel
 import com.rijksmuseum.task.collection.domain.model.detail.CollectionDetailResponse
 import com.rijksmuseum.task.util.network.AppLanguage
 import com.rijksmuseum.task.util.network.Result
@@ -15,7 +15,7 @@ import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito
 
-class CollectionDetailUseCaseTest {
+class CollectionDetailViewDataUseCaseTest {
 
     private val repository = Mockito.mock(CollectionRepository::class.java)
 
@@ -28,7 +28,7 @@ class CollectionDetailUseCaseTest {
 
     @Test
     fun `send invalid data then verify result is InvalidDataException`() = runTest {
-        val invalidParam = CollectionDetailParams(AppLanguage.ENGLISH, "")
+        val invalidParam = CollectionDetailParamsModel(AppLanguage.ENGLISH, "")
         Mockito.`when`(repository.loadDetail(invalidParam)).thenAnswer {}
 
         val res = useCase.invoke(invalidParam).first()
@@ -39,7 +39,7 @@ class CollectionDetailUseCaseTest {
 
     @Test
     fun `send detail params then verify result is success`() = runTest {
-        val param = CollectionDetailParams(AppLanguage.ENGLISH, "SC-2")
+        val param = CollectionDetailParamsModel(AppLanguage.ENGLISH, "SC-2")
         Mockito.`when`(repository.loadDetail(param))
             .thenAnswer { (flowOf(Result.Success(Mockito.mock(CollectionDetailResponse::class.java)))) }
 

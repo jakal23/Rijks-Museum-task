@@ -4,11 +4,11 @@ import android.net.Uri
 import android.util.Log
 import com.rijksmuseum.task.collection.domain.model.detail.ArtObjectDetail
 import com.rijksmuseum.task.collection.domain.model.list.ArtObject
-import com.rijksmuseum.task.collection.presentation.collection.model.CollectionAdapterItem
-import com.rijksmuseum.task.collection.presentation.detail.model.CollectionDetail
+import com.rijksmuseum.task.collection.presentation.collection.model.CollectionItem
+import com.rijksmuseum.task.collection.presentation.detail.model.CollectionDetailViewData
 
-fun ArtObject.toAdapterItem(): CollectionAdapterItem.Body {
-    return CollectionAdapterItem.Body(
+fun ArtObject.toAdapterItem(): CollectionItem.CollectionDetail {
+    return CollectionItem.CollectionDetail(
         id = id,
         title = title,
         description = longTitle,
@@ -19,10 +19,10 @@ fun ArtObject.toAdapterItem(): CollectionAdapterItem.Body {
     )
 }
 
-fun ArtObjectDetail.toCollectionDetail(): CollectionDetail {
+fun ArtObjectDetail.toCollectionDetail(): CollectionDetailViewData {
     val image = if (hasImage && showImage) webImage.url else null
 
-    return CollectionDetail(
+    return CollectionDetailViewData(
         id, description, title, principalMaker, image
     )
 }

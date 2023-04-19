@@ -9,8 +9,8 @@ import androidx.paging.insertSeparators
 import androidx.paging.map
 import com.rijksmuseum.task.collection.domain.CollectionRepository
 import com.rijksmuseum.task.collection.domain.model.list.ArtObject
-import com.rijksmuseum.task.collection.domain.model.list.CollectionSearchParams
-import com.rijksmuseum.task.collection.presentation.collection.model.CollectionAdapterItem
+import com.rijksmuseum.task.collection.domain.model.list.CollectionSearchParamsModel
+import com.rijksmuseum.task.collection.presentation.collection.model.CollectionItem
 import com.rijksmuseum.task.collection.presentation.util.toAdapterItem
 import com.rijksmuseum.task.util.network.AppLanguage
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -35,7 +35,7 @@ class CollectionViewModel @Inject constructor(
             .cachedIn(viewModelScope)
     ).flattenMerge(2)
 
-    private fun Flow<PagingData<ArtObject>>.groupByMaker(): Flow<PagingData<CollectionAdapterItem>> {
+    private fun Flow<PagingData<ArtObject>>.groupByMaker(): Flow<PagingData<CollectionItem>> {
         return this
             .map { pagingData -> pagingData.map { it.toAdapterItem() } }
             .map {
@@ -45,23 +45,23 @@ class CollectionViewModel @Inject constructor(
                     val afterType = after?.maker
 
                     when {
-                        beforeType != afterType -> CollectionAdapterItem.Header(beforeType)
+                        beforeType != afterType -> CollectionItem.Maker(beforeType)
                         else -> null // no separator
                     }
                 }
             }
     }
 
-    fun state(): CollectionSearchParams {
+    fun state(): CollectionSearchParamsModel {
         return state.value
     }
 
-    private fun getPager(request: CollectionSearchParams): Flow<PagingData<ArtObject>> {
+    private fun getPager(request: CollectionSearchParamsModel): Flow<PagingData<ArtObject>> {
         return repository.getPager(PAGE_SIZE, request)
     }
 
-    private fun shouldSearch(collectionSearchParams: CollectionSearchParams) =
-        savedStateHandle.get<CollectionSearchParams>(SEARCH_KEY) != collectionSearchParams
+    private fun shouldSearch(collectionSearchParamsModel: CollectionSearchParamsModel) =
+        savedStateHandle.get<CollectionSearchParamsModel>(SEARCH_KEY) != collectionSearchParamsModel
 
     fun search(query: String) {
         search(
@@ -69,7 +69,7 @@ class CollectionViewModel @Inject constructor(
         )
     }
 
-    fun sort(sort: CollectionSearchParams.Sort) {
+    fun sort(sort: CollectionSearchParamsModel.Sort) {
         search(
             state.value.copy(sort = sort)
         )
@@ -81,7 +81,7 @@ class CollectionViewModel @Inject constructor(
         )
     }
 
-    private fun search(request: CollectionSearchParams) {
+    private fun search(request: CollectionSearchParamsModel) {
         if (!shouldSearch(request)) return
 
         clearListCh.trySend(Unit).isSuccess
@@ -94,10 +94,10 @@ class CollectionViewModel @Inject constructor(
 
         private const val PAGE_SIZE = 30
 
-        private val DEF_STATE = CollectionSearchParams(
+        private val DEF_STATE = CollectionSearchParamsModel(
             culture = AppLanguage.ENGLISH,
             query = "",
-            sort = CollectionSearchParams.Sort.ARTIST
+            sort = CollectionSearchParamsModel.Sort.ARTIST
         )
     }
 }

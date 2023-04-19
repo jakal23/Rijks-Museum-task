@@ -4,10 +4,10 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.rijksmuseum.task.collection.domain.CollectionRepository
-import com.rijksmuseum.task.collection.domain.model.detail.CollectionDetailParams
+import com.rijksmuseum.task.collection.domain.model.detail.CollectionDetailParamsModel
 import com.rijksmuseum.task.collection.domain.model.detail.CollectionDetailResponse
 import com.rijksmuseum.task.collection.domain.model.list.ArtObject
-import com.rijksmuseum.task.collection.domain.model.list.CollectionSearchParams
+import com.rijksmuseum.task.collection.domain.model.list.CollectionSearchParamsModel
 import com.rijksmuseum.task.util.network.Result
 import com.rijksmuseum.task.util.network.flowOfExecutor
 import kotlinx.coroutines.Dispatchers
@@ -19,7 +19,7 @@ class CollectionRepositoryImpl(
 ) : CollectionRepository {
 
     override fun loadDetail(
-        params: CollectionDetailParams
+        params: CollectionDetailParamsModel
     ): Flow<Result<CollectionDetailResponse>> {
         return flowOfExecutor {
             service.loadCollectionDetails(
@@ -31,14 +31,14 @@ class CollectionRepositoryImpl(
 
     override fun getPager(
         pageSize: Int,
-        params: CollectionSearchParams
+        params: CollectionSearchParamsModel
     ): Flow<PagingData<ArtObject>> {
         return Pager(
             config = PagingConfig(pageSize)
         ) { getPagingSource(params) }.flow
     }
 
-    private fun getPagingSource(params: CollectionSearchParams): CollectionPagingSource {
+    private fun getPagingSource(params: CollectionSearchParamsModel): CollectionPagingSource {
         return CollectionPagingSource(service, params)
     }
 }
