@@ -4,7 +4,7 @@ import com.google.common.truth.Truth
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
 
-class ErrorsTest{
+class ErrorsTest {
 
     private val errorMessage = "No network access"
 

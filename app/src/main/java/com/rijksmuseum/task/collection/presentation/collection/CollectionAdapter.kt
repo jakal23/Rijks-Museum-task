@@ -15,7 +15,6 @@ import com.rijksmuseum.task.collection.presentation.collection.model.CollectionA
 import com.rijksmuseum.task.databinding.CollectionListItemBinding
 import com.rijksmuseum.task.databinding.ListItemHeaderBinding
 
-
 class CollectionAdapter(
     onItemClick: (CollectionAdapterItem.Body) -> Unit
 ) : PagingDataAdapter<CollectionAdapterItem, CollectionAdapter.BaseViewHolder>(COMPARATOR) {
@@ -161,6 +160,4 @@ class CollectionAdapter(
                         || (oldItem.isHeader() && newItem.isHeader() && oldItem.asHeader() == newItem.asHeader())
         }
     }
-
-
 }

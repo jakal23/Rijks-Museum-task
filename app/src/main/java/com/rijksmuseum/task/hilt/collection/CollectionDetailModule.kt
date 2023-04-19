@@ -1,6 +1,5 @@
 package com.rijksmuseum.task.hilt.collection
 
-
 import com.rijksmuseum.task.collection.domain.CollectionRepository
 import com.rijksmuseum.task.collection.domain.usecase.CollectionDetailUseCase
 import dagger.Module

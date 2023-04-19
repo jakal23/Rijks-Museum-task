@@ -30,7 +30,6 @@ sealed class CollectionAdapterItem {
      */
     fun isHeader() = this is Header
 
-
     fun asBody(): Body {
         return this as Body
     }

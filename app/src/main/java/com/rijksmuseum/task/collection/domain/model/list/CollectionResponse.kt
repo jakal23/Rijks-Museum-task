@@ -2,7 +2,6 @@ package com.rijksmuseum.task.collection.domain.model.list
 
 import com.rijksmuseum.task.collection.domain.model.WebImage
 
-
 data class CollectionResponse(
     val artObjects: List<ArtObject>,
     val count: Int,
