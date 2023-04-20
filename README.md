@@ -17,24 +17,24 @@ api [https://github.com/jakal23/Rijks-Museum-task]
 
 Google
 
-- ```groovy com.google.android.material```
-- ```groovy com.google.code.gson```
-- ```groovy com.google.dagger:hilt```
+- ```com.google.android.material```
+- ```com.google.code.gson```
+- ```com.google.dagger:hilt```
 
 Android x
 
-- ```groovy androidx.navigation:navigation-fragment```
-- ```groovy androidx.paging:paging-runtime```
+- ```androidx.navigation:navigation-fragment```
+- ```androidx.paging:paging-runtime```
 
 Third party
 
-- ```groovy com.squareup.retrofit2```
-- ```groovy com.github.bumptech.glide```
+- ```com.squareup.retrofit2```
+- ```com.github.bumptech.glide```
 
 Tests junit 4
 
-- ```groovy com.google.truth```
-- ```groovy org.mockito.kotlin```
+- ```com.google.truth```
+- ```org.mockito.kotlin```
 
 # Service
 
